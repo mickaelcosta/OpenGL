@@ -39,9 +39,6 @@
 		CEA216EE21ABB29200668AA1 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		CEB99E0A21EE301E008AF8CB /* robo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = robo.cpp; sourceTree = "<group>"; };
 		CEB99E0B21EE301E008AF8CB /* robo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = robo.hpp; sourceTree = "<group>"; };
-		CEB99E1021EE3140008AF8CB /* macaco.mtl */ = {isa = PBXFileReference; lastKnownFileType = text; path = macaco.mtl; sourceTree = "<group>"; };
-		CEB99E1121EE3145008AF8CB /* macaco.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = macaco.obj; sourceTree = "<group>"; };
-		CEB99E1221EE315D008AF8CB /* music1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music1.wav; sourceTree = "<group>"; };
 		CEB99E1321EE3656008AF8CB /* keyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = keyboard.cpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/keyboard.cpp"; sourceTree = "<group>"; };
 		CEB99E1421EE3656008AF8CB /* keyboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = keyboard.hpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/keyboard.hpp"; sourceTree = "<group>"; };
 		CEB99E1621EE38BF008AF8CB /* grid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = grid.cpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/grid.cpp"; sourceTree = "<group>"; };
@@ -52,6 +49,8 @@
 		CEB99E1D21EE4A8B008AF8CB /* light.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = light.hpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/light.hpp"; sourceTree = "<group>"; };
 		CEB99E1F21EE4CA2008AF8CB /* audio.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = audio.cpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/audio.cpp"; sourceTree = "<group>"; };
 		CEB99E2021EE4CA2008AF8CB /* audio.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = audio.hpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/audio.hpp"; sourceTree = "<group>"; };
+		CEB99E2521EE4FB5008AF8CB /* damage 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "damage 1.wav"; sourceTree = "<group>"; };
+		CEB99E2621EE4FB5008AF8CB /* dead 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dead 1.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +87,8 @@
 		CEA216E321ABAFDE00668AA1 /* aprendizado */ = {
 			isa = PBXGroup;
 			children = (
-				CEB99E0E21EE3094008AF8CB /* models */,
-				CEB99E0D21EE3029008AF8CB /* wav */,
+				CEB99E2421EE4EAA008AF8CB /* wav */,
+				CEB99E2321EE4E8E008AF8CB /* models */,
 				CEA216E421ABAFDE00668AA1 /* main.cpp */,
 				CEB99E1F21EE4CA2008AF8CB /* audio.cpp */,
 				CEB99E2021EE4CA2008AF8CB /* audio.hpp */,
@@ -117,21 +116,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CEB99E0D21EE3029008AF8CB /* wav */ = {
+		CEB99E2321EE4E8E008AF8CB /* models */ = {
 			isa = PBXGroup;
 			children = (
-				CEB99E1221EE315D008AF8CB /* music1.wav */,
-			);
-			path = wav;
-			sourceTree = "<group>";
-		};
-		CEB99E0E21EE3094008AF8CB /* models */ = {
-			isa = PBXGroup;
-			children = (
-				CEB99E1121EE3145008AF8CB /* macaco.obj */,
-				CEB99E1021EE3140008AF8CB /* macaco.mtl */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		CEB99E2421EE4EAA008AF8CB /* wav */ = {
+			isa = PBXGroup;
+			children = (
+				CEB99E2521EE4FB5008AF8CB /* damage 1.wav */,
+				CEB99E2621EE4FB5008AF8CB /* dead 1.wav */,
+			);
+			path = wav;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
