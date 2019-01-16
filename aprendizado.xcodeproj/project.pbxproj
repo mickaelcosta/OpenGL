@@ -51,6 +51,8 @@
 		CEB99E2021EE4CA2008AF8CB /* audio.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = audio.hpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/audio.hpp"; sourceTree = "<group>"; };
 		CEB99E2521EE4FB5008AF8CB /* damage 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "damage 1.wav"; sourceTree = "<group>"; };
 		CEB99E2621EE4FB5008AF8CB /* dead 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dead 1.wav"; sourceTree = "<group>"; };
+		CEB99E3D21EECF7E008AF8CB /* ambiente.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ambiente.wav; sourceTree = "<group>"; };
+		CEB99E4221EFC828008AF8CB /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bounce.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,8 @@
 		CEB99E2421EE4EAA008AF8CB /* wav */ = {
 			isa = PBXGroup;
 			children = (
+				CEB99E4221EFC828008AF8CB /* bounce.wav */,
+				CEB99E3D21EECF7E008AF8CB /* ambiente.wav */,
 				CEB99E2521EE4FB5008AF8CB /* damage 1.wav */,
 				CEB99E2621EE4FB5008AF8CB /* dead 1.wav */,
 			);

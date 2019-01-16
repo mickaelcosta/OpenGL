@@ -12,6 +12,7 @@
 #include "grid.hpp"
 #include "glLists.hpp"
 #include "light.hpp"
+#include "audio.hpp"
 
 using namespace std;
 
@@ -19,7 +20,6 @@ static int esfera_list, braco_list, blend_enable_list, blend_disable_list, grid_
 
 void display(void){
 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
     //set global matrix
     glPushMatrix();
     glCallList(grid_list);
@@ -154,6 +154,13 @@ void init(void){
    glHint (GL_FOG_HINT, GL_DONT_CARE);
    glFogi(GL_FOG_COORD_SRC, GL_FRAGMENT_DEPTH);
     
+    
+    //audio
+    alInit();
+    wavLoader();
+    setSources();
+    setListener();
+    
     //esconder partes de entidades não visíveis
     glEnable(GL_DEPTH_TEST);
 }
@@ -221,6 +228,7 @@ void selectColor(int item){
 
 void menu(int item){
     if(item == 1)
+       alCleanUp();
         exit(0);
 }
 
@@ -249,5 +257,7 @@ int main(int argc, char** argv) {
     
     init();
     glutMainLoop();
+    
+    alCleanUp();
     return 0;
 }

@@ -10,9 +10,11 @@
 #define keyboard_hpp
 
 #include <stdio.h>
+#include <GLUT/GLUT.h>
+#include <OpenAL/OpenAL.h>
 
 //variáveis
-extern float cameraX, cameraY, cameraZ;
+extern ALfloat cameraX, cameraY, cameraZ;
 extern GLdouble spin;
 
 

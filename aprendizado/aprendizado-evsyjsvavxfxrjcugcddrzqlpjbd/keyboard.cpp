@@ -7,11 +7,14 @@
 //
 
 #include <GLUT/GLUT.h>
+#include <iostream>
 #include "keyboard.hpp"
 #include "robo.hpp"
+#include "audio.hpp"
 
 //definição das variáveis
-float cameraX = 3.0, cameraY = 5.0 , cameraZ = 5.0;
+ALfloat cameraX = 3.0, cameraY = 5.0 , cameraZ = 5.0;
+
 GLdouble spin = 0.0;
 
 //implementação das funções
@@ -24,6 +27,9 @@ void Specialkey(int key, int x, int y)
             glLoadIdentity();
             cameraY += 0.25;
             gluLookAt(cameraX, cameraY, cameraZ, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+            alListener3f(AL_POSITION, cameraX, cameraY, cameraZ);
+            std::cout << "posicao listener: " << " " <<cameraX<< " " << cameraY<< " " <<cameraZ << std::endl;
+                playSource();
             break;
         case GLUT_KEY_DOWN:
             glMatrixMode(GL_MODELVIEW);
