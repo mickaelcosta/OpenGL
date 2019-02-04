@@ -1,10 +1,7 @@
-//
 //  robo.cpp
 //  aprendizado
-//
 //  Created by User on 15/01/19.
 //  Copyright © 2019 mickael. All rights reserved.
-//
 
 #include "robo.hpp"
 #include <GLUT/GLUT.h>
@@ -13,7 +10,6 @@ GLfloat mat_specular_esfera[] = { 0.2, 0.2, 0.2, 1.0};
 GLfloat mat_specular_braco[] = { 0.5, 0.5, 0.5, 0.4};
 GLfloat mat_reflexao[] = { 20.0 };
 
-
 //implementação das funções
 void desenha_esfera(void){
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular_esfera);
@@ -21,7 +17,6 @@ void desenha_esfera(void){
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_reflexao);
     glutSolidSphere(0.2, 10, 5);
 }
-
 void desenha_braco(void){
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular_braco);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_specular_braco);
