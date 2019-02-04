@@ -14,7 +14,6 @@
 		CEB99E0C21EE301E008AF8CB /* robo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB99E0A21EE301E008AF8CB /* robo.cpp */; };
 		CEB99E1521EE3656008AF8CB /* keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB99E1321EE3656008AF8CB /* keyboard.cpp */; };
 		CEB99E1821EE38BF008AF8CB /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB99E1621EE38BF008AF8CB /* grid.cpp */; };
-		CEB99E1B21EE3CE3008AF8CB /* glLists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB99E1921EE3CE3008AF8CB /* glLists.cpp */; };
 		CEB99E1E21EE4A8B008AF8CB /* light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB99E1C21EE4A8B008AF8CB /* light.cpp */; };
 		CEB99E2121EE4CA2008AF8CB /* audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB99E1F21EE4CA2008AF8CB /* audio.cpp */; };
 /* End PBXBuildFile section */
@@ -43,8 +42,6 @@
 		CEB99E1421EE3656008AF8CB /* keyboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = keyboard.hpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/keyboard.hpp"; sourceTree = "<group>"; };
 		CEB99E1621EE38BF008AF8CB /* grid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = grid.cpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/grid.cpp"; sourceTree = "<group>"; };
 		CEB99E1721EE38BF008AF8CB /* grid.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = grid.hpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/grid.hpp"; sourceTree = "<group>"; };
-		CEB99E1921EE3CE3008AF8CB /* glLists.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = glLists.cpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/glLists.cpp"; sourceTree = "<group>"; };
-		CEB99E1A21EE3CE3008AF8CB /* glLists.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = glLists.hpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/glLists.hpp"; sourceTree = "<group>"; };
 		CEB99E1C21EE4A8B008AF8CB /* light.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = light.cpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/light.cpp"; sourceTree = "<group>"; };
 		CEB99E1D21EE4A8B008AF8CB /* light.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = light.hpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/light.hpp"; sourceTree = "<group>"; };
 		CEB99E1F21EE4CA2008AF8CB /* audio.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = audio.cpp; path = "aprendizado-evsyjsvavxfxrjcugcddrzqlpjbd/audio.cpp"; sourceTree = "<group>"; };
@@ -96,8 +93,6 @@
 				CEB99E2021EE4CA2008AF8CB /* audio.hpp */,
 				CEB99E1C21EE4A8B008AF8CB /* light.cpp */,
 				CEB99E1D21EE4A8B008AF8CB /* light.hpp */,
-				CEB99E1921EE3CE3008AF8CB /* glLists.cpp */,
-				CEB99E1A21EE3CE3008AF8CB /* glLists.hpp */,
 				CEB99E1621EE38BF008AF8CB /* grid.cpp */,
 				CEB99E1721EE38BF008AF8CB /* grid.hpp */,
 				CEB99E1321EE3656008AF8CB /* keyboard.cpp */,
@@ -197,7 +192,6 @@
 				CEB99E1E21EE4A8B008AF8CB /* light.cpp in Sources */,
 				CEB99E1521EE3656008AF8CB /* keyboard.cpp in Sources */,
 				CEB99E2121EE4CA2008AF8CB /* audio.cpp in Sources */,
-				CEB99E1B21EE3CE3008AF8CB /* glLists.cpp in Sources */,
 				CEB99E1821EE38BF008AF8CB /* grid.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
