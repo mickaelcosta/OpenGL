@@ -4,23 +4,10 @@
 
 #include "audio.hpp"
 #include "keyboard.hpp"
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <chrono>
-#include <thread>
 
 using namespace std;
 
-ALCcontext *context;
-ALCdevice *device;
-vector<ALuint> buffers;
-ALuint buffer;
-vector<ALuint> sources;
-ALuint source;
-
+//helper function
 void getAlError(void){
     ALenum error = alGetError();
     switch (error) {
@@ -45,7 +32,7 @@ void getAlError(void){
     }
 }
 
-void alInit(void){
+void Audio::alInit(void){
 // Initialize Open AL
 device = alcOpenDevice(NULL); // open default deviceif (device != NULL) {
     context = alcCreateContext(device,NULL); // create context
@@ -55,44 +42,32 @@ device = alcOpenDevice(NULL); // open default deviceif (device != NULL) {
     alGetError();
  }
 
-
 //cria um buffer e se for valido o coloca em um vetor de buffers
-void setBuffers(const ALvoid *data, short int format ,ALsizei size, ALsizei frequency){
+void Audio::setBuffer(const ALvoid *data, short int format ,ALsizei size, ALsizei frequency){
     alGenBuffers(1, &buffer);
     if(alIsBuffer(buffer)){
-        buffers.push_back(buffer);
             if(format == 8){
                 alBufferData (buffer, AL_FORMAT_MONO8, data, size, frequency);
             }
             else if(format == 16){
                 alBufferData (buffer, AL_FORMAT_MONO16, data, size, frequency);
             }
-        alGetError();
     }
-    else{
         alGetError();
-    }
+
 }
 
-void destroyBuffers(void){
-    while (!buffers.empty())
-    {
-        buffers.pop_back();
+void Audio::destroyBuffer(void){
         alDeleteBuffers(1, &buffer);
         alGetError();
-    }
 }
 
 //cria um source e se for valido a coloca em um vetor de sources
-void setSources(void){
+void Audio::setSource(void){
     alGenSources(1, &source);
-    if(alIsSource(source)){
-        sources.push_back(source);
-    }
-    else{
+    if(!alIsSource(source)){
         alGetError();
     }
-    
     //setting parameters
     alSource3f(source, AL_POSITION, 100.0, 100.0, 100.0);
     alSourcef(source, AL_GAIN, 0.5f);
@@ -103,19 +78,15 @@ void setSources(void){
     alSourcei(source, AL_BUFFER, buffer);
 }
 
-void destroySources(void){
-    while (!sources.empty())
-    {
-        sources.pop_back();
+void Audio::destroySource(void){
         alDeleteSources(1, &source);
         alGetError();
-    }
 }
 
 ALfloat ORIENTATION[] = { 0.0,0.0,-1.0, 0.0,1.0,0.0};
 
 //cria um objeto listener
-void setListener(void){
+void Audio::setListener(void){
     alListener3f(AL_POSITION, cameraX, cameraY, cameraZ);
     alListenerfv(AL_ORIENTATION, ORIENTATION);
     cout << "posicao listener: " << cameraX << cameraY <<cameraZ<<endl;
@@ -124,52 +95,21 @@ void setListener(void){
     alGetError();
 }
 
-
- //void queueBufferToSource(ALuint source, ALsizei buffer, ALuint *buffers){
-// alSourceQueueBuffers(source, buffer, buffers);
- //}
- 
- //void unqueueBufferFromSource(ALuint source, ALsizei buffer, ALuint *buffers){
- //stopSource();
- //alSourceUnqueueBuffers(source, buffer, buffers);
- //}
-
-void alCleanUp(void){
-  //  unqueueBufferFromSource(source, 1, &buffer);
-    destroySources();
-    destroyBuffers();
+void Audio::alCleanUp(void){
+    destroySource();
+    destroyBuffer();
     alcMakeContextCurrent(NULL);
     alcDestroyContext(context);
     alcCloseDevice(device);
     alGetError();
 }
-//controle de execucao de source
-
-void pauseSource(){
-    alSourcePause(source);
-}
-
-void stopSource(){
-    alSourceStop(source);
-}
-
-void playSource(){
-    stopSource();
-    alSourcePlay(source);
-}
-
-void rewindSource(){
-    alSourceRewind(source);
-}
-
-
 //wavLoader
-typedef struct header_file* header_p;
-
-void wavLoader(){
+void Audio::wavLoader(){
     char file[] = "/Volumes/HD Mac/Workspaces/C++/xcode/aprendizado/aprendizado/wav/dead 1.wav";
     FILE * wav_file = fopen(file,"rb");        // Open wave file in read mode
-    header_p meta = (header_p)malloc(sizeof(header));    // header_p points to a header struct that contains the wave file metadata fields
+    typedef struct header_file* header_p;
+    header_p meta;
+    meta = (header_p)malloc(sizeof(header));    // header_p points to a header struct that contains the wave file metadata fields
     
     if (wav_file)
     {
@@ -189,14 +129,14 @@ void wavLoader(){
         cout << " Subchunk2Size is "<< meta->subchunk2_size << endl;
         
         cout << " Number of samples in wave file are " << meta->subchunk2_size << " samples" << endl;*/
-        
+    
         short *buff16;
         buff16 = new short [meta->subchunk2_size/(meta->bits_per_sample/8)]; // Create an element for every sample
         fread(buff16,meta->bits_per_sample/8,meta->subchunk2_size/(meta->bits_per_sample/8), wav_file);        // Reading data in chunks
         
         fclose(wav_file);
         
-        setBuffers(buff16,meta->bits_per_sample,meta->subchunk2_size/(meta->bits_per_sample/8), meta->sample_rate);
+        setBuffer(buff16,meta->bits_per_sample,meta->subchunk2_size/(meta->bits_per_sample/8), meta->sample_rate);
        // queueBufferToSource(source, 1, &buffer);
         
         /* for(auto i = 0 ; i < meta->subchunk2_size/(meta->bits_per_sample/8) ; i++){

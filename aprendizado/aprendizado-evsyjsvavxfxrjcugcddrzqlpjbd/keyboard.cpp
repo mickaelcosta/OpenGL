@@ -15,6 +15,7 @@
 //definição das variáveis
 ALfloat cameraX = 3.0, cameraY = 5.0 , cameraZ = 5.0;
 extern Robo m_robo1;
+extern Audio m_audio1;
 GLdouble spin = 0.0;
 int shoulder, elbow, wrist, shoulder_rotation, fingers;
 
@@ -30,7 +31,7 @@ void Specialkey(int key, int x, int y)
             gluLookAt(cameraX, cameraY, cameraZ, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
             alListener3f(AL_POSITION, cameraX, cameraY, cameraZ);
             std::cout << "posicao listener: " << " " <<cameraX<< " " << cameraY<< " " <<cameraZ << std::endl;
-                playSource();
+                m_audio1.playSource();
             break;
         case GLUT_KEY_DOWN:
             glMatrixMode(GL_MODELVIEW);

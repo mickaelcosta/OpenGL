@@ -1,16 +1,21 @@
-//
 //  audio.hpp
 //  aprendizado
-//
 //  Created by User on 15/01/19.
 //  Copyright © 2019 mickael. All rights reserved.
-//
 
 #ifndef audio_hpp
 #define audio_hpp
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <chrono>
+#include <thread>
 #include <OpenAL/OpenAL.h>
+
+using namespace std;
 
 typedef struct header_file
 {
@@ -31,17 +36,41 @@ typedef struct header_file
 
 typedef struct header_file* header_p;
 
-//interfaces das funções
-void alInit(void);
-void alCleanUp();
-void setListener(void);
-void setSources(void);
-void wavLoader(void);//setbuffers inside
-void playSource(void);
-void pauseSource(void);
-void stopSource(void);
-void rewindSource(void);
-
-
-void alxSource(ALfloat x);
+class Audio{
+private:
+    ALCcontext *context;
+    ALCdevice *device;
+    ALuint buffer;
+    ALuint source;
+public:
+    //interfaces das funções
+    void alInit(void);
+    void alCleanUp();
+    void setListener(void);
+    void setBuffer(const ALvoid *data, short int format ,ALsizei size, ALsizei frequency);
+    void destroyBuffer(void);
+    void setSource(void);
+    void destroySource(void);
+    void wavLoader(void);//setbuffers inside
+    
+    //-------------------------------------
+    //--- Controle de execucao de audio ---
+    //-------------------------------------
+    inline void stopSource(void){
+        alSourceStop(source);
+    }
+    inline void playSource(void){
+        stopSource();
+        alSourcePlay(source);
+    }
+    inline void pauseSource(void){
+        alSourcePause(source);
+    }
+    inline void rewindSource(void){
+         alSourceRewind(source);
+    }
+    
+    Audio(){};
+    ~Audio(){};
+};
 #endif /* audio_hpp */

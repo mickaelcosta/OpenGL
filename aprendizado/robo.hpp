@@ -46,7 +46,6 @@ public:
     inline void setFingers(int valor){
            fingers = valor;
     };
-    
     inline int getShoulder(void){
        return shoulder ;
     };
@@ -62,14 +61,12 @@ public:
     inline int getFingers(void){
         return fingers;
     };
-    
     void gerarRobo(void);
     void avisoLimiteArticulacao(void);
     
     Robo():shoulder{0},shoulder_rotation{0},
     elbow{0}, wrist{0},
     fingers{0}{};
-    
     ~Robo(){};
 };
 

@@ -16,6 +16,7 @@ using namespace std;
 int esfera_list, braco_list, blend_enable_list, blend_disable_list, grid_list;
 GLfloat fogColor[] = { 1.0, 1.0, 1.0, 1 };
 Robo m_robo1;
+Audio m_audio1;
 
 
 void enableBlend(void){
@@ -26,6 +27,9 @@ void enableBlend(void){
 void disableBlend(void){
     glDisable(GL_BLEND);
     glDepthMask(GL_TRUE);
+}
+void alCleanAudio(void){
+    m_audio1.alCleanUp();
 }
 
 void display(void){
@@ -100,10 +104,10 @@ void init(void){
    glEnable(GL_FOG);
 
     //audio
-    alInit();
-    wavLoader();
-    setSources();
-    setListener();
+    m_audio1.alInit();
+    m_audio1.wavLoader();
+    m_audio1.setSource();
+    m_audio1.setListener();
 }
 
 void reshape(int w, int h){
@@ -139,6 +143,6 @@ int main(int argc, char** argv) {
 
     init();
     glutMainLoop();
-    atexit(alCleanUp);
+    atexit(alCleanAudio);
     return 0;
 }
